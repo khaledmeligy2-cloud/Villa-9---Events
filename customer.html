@@ -9,8 +9,7 @@ const adds=document.getElementById('addons');ADDONS.forEach((a,i)=>{const row=do
 function getSelection(){return PACKAGES.map((p,i)=>({...p,qty:Math.max(0,Math.floor(Number(document.getElementById('q'+i).value)||0))})).filter(p=>p.qty>0)}
 function update(){const sel=getSelection(),packageCount=sel.reduce((s,p)=>s+p.qty,0),customCount=Number(document.getElementById('customGuests').value)||0,count=sel.length?packageCount:customCount,total=sel.reduce((s,p)=>s+p.qty*p.price,0);document.getElementById('guestCount').textContent=count;document.getElementById('total').textContent=fmt(total);document.getElementById('lines').innerHTML=sel.length?sel.map(p=>`<div class="sumrow"><span>${p.name} × ${p.qty}</span><strong>${fmt(p.price*p.qty)}</strong></div>`).join(''):'<div class="hint">لم يتم تحديد باكدجات بعد. يمكنك إرسال استفسار عن مناسبة مخصصة.</div>';return {sel,count,total}}
 packages.addEventListener('input',update);document.getElementById('customGuests').addEventListener('input',update);update();document.getElementById('date').min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
-const BOOKING_ENDPOINT='https://script.google.com/macros/s/AKfycbznFaEw9T64Z__ZRjDxAcMkHxj_GNVpgvcIQ8ZkATIv1BFy2vylYhVljmSclWd06dJs/exec';
-const sendButton=document.getElementById('send');
+const BOOKING_ENDPOINT = 'https://script.google.com/macros/s/AKfycbznFaEw9T64Z__ZRjDxAcMkHxj_GNVpgvcIQ8ZkATIv1BFy2vylYhVljmSclWd06dJs/exec';const sendButton=document.getElementById('send');
 sendButton.addEventListener('click',async()=>{
   const ids=['type','date','time','name','phone'];
   for(const id of ids){
