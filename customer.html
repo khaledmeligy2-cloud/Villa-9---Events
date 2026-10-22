@@ -112,28 +112,63 @@ sendButton.addEventListener('click',async()=>{if(!catalogReady){alert('الأس�
   ].join('\n');
   const whatsapp='https://wa.me/201001155792?text='+encodeURIComponent(txt);
   // Open during the direct click to avoid iPhone pop-up blocking.
-  const whatsappWindow=window.open('about:blank','_blank');
+  const whatsappWindow=null;
   sendButton.disabled=true;
   sendButton.textContent='جاري إرسال البيانات...';
-  let attempted=false;
-  try{
-    // Apps Script Web Apps do not generally return browser-readable CORS responses.
-    // no-cors sends the JSON text but cannot confirm whether Sheets saved it.
+  // Stable token for retries of this booking, never regenerate after a timeout.
+  if(!window.v9PendingToken){
+    window.v9PendingToken=(crypto.randomUUID ? crypto.randomUUID() :
+      Array.from(crypto.getRandomValues(new Uint8Array(16)),b=>b.toString(16).padStart(2,'0')).join('').replace(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/,'$1-$2-$3-$4-$5'));
+  }
+  data.clientToken=window.v9PendingToken;
+  const token=data.clientToken;
+  const statusText=document.getElementById('bookingStatusText');
+  const resultBox=document.getElementById('bookingResult');
+  resultBox.hidden=false;
+  statusText.textContent='جاري تسجيل طلبك والتحقق من رقم الحجز...';
+  let transportOk=false;
+  try {
     await fetch(BOOKING_ENDPOINT,{
       method:'POST',mode:'no-cors',redirect:'follow',
       headers:{'Content-Type':'text/plain;charset=utf-8'},
       body:JSON.stringify(data)
     });
-    attempted=true;
-  }catch(err){
-    console.error('Booking transport failed:',err);
-  }finally{
-    sendButton.disabled=false;
-    sendButton.textContent='إرسال الطلب وفتح واتساب ←';
+    transportOk=true;
+  }catch(err){console.error('Booking transport failed:',err)}
+  async function checkStatus(){
+    return new Promise(resolve=>{
+      const cb='v9StatusCallback_'+Date.now()+'_'+Math.floor(Math.random()*10000);
+      const script=document.createElement('script');
+      let done=false;
+      const timer=setTimeout(()=>finish(null),7000);
+      function finish(data){if(done)return;done=true;clearTimeout(timer);delete window[cb];script.remove();resolve(data)}
+      window[cb]=finish;
+      script.onerror=()=>finish(null);
+      script.src=BOOKING_ENDPOINT+'?action=bookingStatus&token='+encodeURIComponent(token)+'&callback='+cb;
+      document.head.appendChild(script);
+    });
   }
-  if(whatsappWindow&&!whatsappWindow.closed){whatsappWindow.location.href=whatsapp;}
-  else{window.location.href=whatsapp;}
-  if(!attempted){alert('تعذر الاتصال بنظام الحجوزات. ابعت رسالة واتساب، وسنتابع طلبك يدويًا.');}
-  else{alert('تم إرسال الطلب إلى النظام، لكن لا يمكن تأكيد حفظه من الصفحة. من فضلك أرسل رسالة واتساب أيضًا لتأكيد الاستلام.');}
+  let verified=null;
+  for(let attempt=0;attempt<8;attempt++){
+    const result=await checkStatus();
+    if(result&&result.saved&&result.requestId){verified=result;break;}
+    if(attempt<7)await new Promise(r=>setTimeout(r,2000));
+  }
+  sendButton.disabled=false;
+  sendButton.textContent='إرسال الطلب وفتح واتساب ←';
+  if(verified){
+    window.v9PendingToken=null;
+    statusText.textContent='تم استلام طلب الحجز بنجاح! رقم الحجز: '+verified.requestId+' | الحالة: في انتظار تأكيد الإدارة.';
+    const link=document.getElementById('bookingWhatsapp');
+    link.href=whatsapp;
+    link.hidden=false;
+    resultBox.scrollIntoView({behavior:'smooth',block:'center'});
+    sendButton.disabled=true; // Avoid a second booking from this completed form.
+  }else{
+    statusText.textContent=transportOk
+      ? 'لم نتمكن من تأكيد تسجيل الحجز حتى الآن. لا تعيد تعبئة الطلب؛ يمكنك الضغط على إرسال مرة أخرى للتحقق بنفس الرمز، أو التواصل معنا على واتساب.'
+      : 'تعذر الاتصال بنظام الحجز. حاول مرة أخرى أو تواصل معنا على واتساب.';
+    const link=document.getElementById('bookingWhatsapp');link.href=whatsapp;link.hidden=false;
+  }
 });
-</script></body></html>
+</script><section id="bookingResult" hidden style="max-width:760px;margin:18px auto;padding:20px;border:1px solid #b9d5c4;border-radius:16px;background:#e9f1ec;text-align:center"><h2>Villa 9 | حالة طلب الحجز</h2><p id="bookingStatusText" aria-live="polite"></p><a id="bookingWhatsapp" hidden target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:12px 20px;border-radius:9px;background:#17392f;color:white;text-decoration:none" href="#">متابعة على واتساب</a></section></body></html>
