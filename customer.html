@@ -1,25 +1,32 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#17392f"><title>Villa 9 | احجز مناسبتك</title><style>
-:root{--forest:#17392f;--mint:#e9f1ec;--gold:#a9683e;--bg:#f7f6f2;--ink:#1b2824;--muted:#66716b;--line:#dfe5df}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}header{background:var(--forest);color:white;text-align:center;padding:28px 16px 35px}header img{width:86px;height:86px;object-fit:contain;border-radius:18px;background:white;padding:6px}h1{font-size:26px;margin:10px 0 0}header p{margin:4px 0;color:#e5e7de}.wrap{max-width:850px;margin:-18px auto 45px;padding:0 14px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:15px;box-shadow:0 5px 18px #19362b0a}h2{font-size:19px;margin:0 0 10px;color:var(--forest)}.hint{color:var(--muted);font-size:13px;margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}label{display:block;font-weight:650;font-size:13px;margin-bottom:5px}input,select,textarea{width:100%;border:1px solid #cbd7cf;border-radius:10px;background:white;padding:11px;font:inherit;color:var(--ink)}input:focus,select:focus,textarea:focus{outline:2px solid #a5c9b4}input[type=checkbox]{width:auto;accent-color:var(--forest)}.pkg{border:1px solid var(--line);padding:13px;border-radius:14px;margin:9px 0;background:#fff}.pkg-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.pkg strong{color:var(--forest)}.price{font-weight:750;color:var(--gold);white-space:nowrap}.pkg p{margin:4px 0 9px;color:var(--muted);font-size:13px}.qty{max-width:125px}.addon{display:flex;align-items:flex-start;gap:9px;padding:11px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px}.addon span{font-weight:500}.summary{background:var(--mint);border:1px solid #c3d8ca;border-radius:15px;padding:18px}.sumrow{display:flex;justify-content:space-between;gap:8px;margin:7px 0}.total{border-top:1px solid #b9d0c0;padding-top:12px;margin-top:10px;font-size:22px;font-weight:800;color:var(--forest)}.warning{background:#fff9e9;border:1px solid #ecd8a3;border-radius:12px;padding:13px;margin:14px 0;font-size:13px}.btn{width:100%;background:var(--forest);color:white;border:0;border-radius:13px;padding:15px;font:700 17px system-ui;cursor:pointer}.btn:hover{background:#23523f}.foot{text-align:center;color:var(--muted);font-size:12px;margin:18px 0}.badge{display:inline-block;border-radius:30px;background:#e8f2ec;color:var(--forest);padding:3px 10px;font-size:12px}.hidden{display:none!important}@media(max-width:600px){.grid{grid-template-columns:1fr}.card{padding:16px}.pkg-top{flex-direction:column;gap:1px}h1{font-size:23px}}
-</style></head><body><header><img src="icon.png" alt="Villa 9 Logo"><h1>Villa 9 | مناسبتك عندنا</h1><p>اختار الضيافة المناسبة وخد تقدير مبدئي للمأكولات والمشروبات</p></header><main class="wrap"><section class="card"><h2>١. تفاصيل المناسبة</h2><div class="grid"><div><label for="type">نوع المناسبة *</label><select id="type" required><option value="">اختار المناسبة</option><option>عيد ميلاد أطفال</option><option>عيد ميلاد كبار</option><option>خطوبة</option><option>كتب كتاب</option><option>فرح</option><option>عزومة / تجمع عائلي</option><option>مناسبة شركة</option><option>مناسبة أخرى</option></select></div><div><label for="location">مكان المناسبة *</label><select id="location"><option>داخل Villa 9</option><option>كاترينج خارجي</option></select></div><div id="areaModeWrap"><label for="bookingMode">نوع الحجز داخل Villa 9</label><select id="bookingMode"><option value="regular">حجز عادي (غير حصري)</option><option value="exclusive">حجز مساحة حصرية لمدة 5 ساعات</option></select></div><div id="exclusiveAreaWrap" class="hidden"><label for="exclusiveArea">اختار المساحة الحصرية *</label><select id="exclusiveArea"><option value="">اختار المساحة</option><option value="Front Garden">Front Garden | الجنينة الأمامية</option><option value="Back Garden">Back Garden | الجنينة الخلفية</option><option value="Indoor">Indoor | الصالة الداخلية</option><option value="Rooftop">Rooftop | الرووف</option></select></div><div id="exclusiveHint" class="hidden" style="grid-column:1/-1;background:#e9f1ec;border-radius:12px;padding:12px;font-size:13px">مدة الحجز الحصري 5 ساعات. رسوم المساحة المقترحة: 2,000 جنيه من الأحد للأربعاء، و3,500 جنيه من الخميس للسبت، وتظهر ضمن الإجمالي التقديري عند تحديد التاريخ، مع خضوع الحجز للتوافر وتأكيد الإدارة. <strong id="areaFeeHint"></strong></div><div><label for="date">التاريخ المطلوب *</label><input id="date" type="date" required></div><div><label for="time">الوقت المفضل *</label><input id="time" type="time" required></div></div><p class="hint" style="margin-top:12px">المواعيد والمساحات حسب التوافر، وطلب العرض لا يعني تأكيد الحجز.</p></section><section class="card"><h2>٢. اختار باكدجات الضيافة</h2><p class="hint">ممكن تجمع باكدجات الأطفال والكبار في نفس المناسبة. اكتب عدد الضيوف في كل باكدج، وسيظهر إجمالي الأكل والمشروبات التقديري فورًا.</p><div id="packages"></div><div class="sumrow"><strong>إجمالي عدد الضيوف</strong><strong id="guestCount">0</strong></div><p class="hint">لباقي أنواع المناسبات أو البوفيهات غير المعتمدة، اكتب طلبك في الملاحظات وسنجهز عرضًا مخصصًا.</p></section><section class="card"><h2>٣. خدمات إضافية مطلوبة</h2><p class="hint">حدد ما تحتاجه. هذه الخدمات لا تدخل في الإجمالي التقديري، وسنحدد تكلفتها في عرض السعر النهائي.</p><div id="addons"></div></section><section class="card"><h2>٤. بيانات التواصل</h2><div class="grid"><div><label for="name">الاسم *</label><input id="name" autocomplete="name" placeholder="الاسم بالكامل" required></div><div><label for="phone">رقم الموبايل *</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx" required></div></div><label for="notes" style="margin-top:12px">تفاصيل أو طلبات خاصة</label><textarea id="notes" rows="3" placeholder="مثلاً: تورتة خاصة، بوفيه، توزيعات، عدد ضيوف تقريبي..."></textarea></section><section class="card"><h2>٥. ملخص الطلب</h2><div class="summary"><div id="lines"></div><div class="sumrow"><span>إجمالي الأكل والمشروبات</span><strong id="foodSubtotal">0 جنيه</strong></div><div class="sumrow" id="areaFeeRow" style="display:none"><span>إيجار المساحة الحصرية (5 ساعات)</span><strong id="areaFeeTotal">0 جنيه</strong></div><div class="sumrow total"><span>الإجمالي التقديري</span><span id="total">0 جنيه</span></div></div><div class="warning"><strong>⚠️ مهم قبل إرسال الطلب:</strong><br>المبلغ المعروض <strong>تقديري للأكل والمشروبات وإيجار المساحة الحصرية عند اختيارها</strong>، وليس السعر النهائي للمناسبة. لا يشمل الديكور أو الـDJ أو تجهيزات الصوت أو التصوير أو النقل والعمالة للكاترينج أو أي رسوم أخرى غير مدرجة. ستراجع إدارة Villa 9 التفاصيل والتوافر، ثم ترسل لك <strong>عرض سعر نهائي منفصل</strong> يتضمن الخدمات المطلوبة والرسوم والضرائب المطبقة إن وجدت. إرسال الطلب لا يؤكد الحجز.</div><button class="btn" id="send">إرسال الطلب وفتح واتساب ←</button><p class="hint" style="text-align:center;margin-top:9px">سيحاول الموقع تسجيل الطلب في نظام الحجوزات، ثم يفتح واتساب برسالة جاهزة. تأكيد التسجيل يتم بعد مراجعة الإدارة.</p></section><p class="foot">Villa 9 Restaurant, Cafe & Rooftop • Event Inquiry</p></main><script>
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#17392f"><title>Villa 9 | Plan Your Event</title><style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--forest:#142e26;--forest2:#204638;--mint:#edf3ec;--gold:#c6a36a;--bg:#f7f5ef;--ink:#20332b;--muted:#68766d;--line:#e3e7df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 'DM Sans',Arial,sans-serif}header{position:relative;overflow:hidden;background:radial-gradient(ellipse at 90% 0%,#42654a 0%,transparent 48%),linear-gradient(135deg,#10271f,#244838);color:white;padding:24px 22px 84px}header:after{content:'';position:absolute;right:-80px;bottom:-165px;width:350px;height:350px;border:1px solid #ffffff26;border-radius:50%;pointer-events:none}.head-inner{max-width:1000px;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px}.brandmark{display:flex;align-items:center;gap:10px;color:#f5e4c1;font-size:12px;letter-spacing:2px;font-weight:700}.brandmark:before{content:'';width:24px;height:1px;background:var(--gold)}header img{width:92px;height:92px;object-fit:contain;border-radius:14px;background:#ffffffee;padding:6px;box-shadow:0 8px 30px #0003}.eyebrow{color:#d6b783;text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:700;margin:24px 0 10px}.hero-title{font:600 clamp(34px,6vw,55px)/1.12 'Playfair Display',Georgia,serif;margin:0;max-width:700px}.hero-sub{color:#e5e9df;margin:12px 0 0;font-size:16px}.hero-desc{color:#cbd8cd;max-width:620px;margin:14px 0 0}.wrap{max-width:1000px;margin:-46px auto 55px;padding:0 18px;position:relative}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;margin-bottom:18px;box-shadow:0 9px 34px #1c39270d}h2{font:600 23px/1.3 'Playfair Display',Georgia,serif;margin:0 0 13px;color:var(--forest)}.hint{color:var(--muted);font-size:13px;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}label{display:block;font-weight:700;font-size:12px;margin-bottom:6px;color:#34483b}input,select,textarea{width:100%;border:1px solid #d4ded5;border-radius:11px;background:#fff;padding:12px 13px;font:inherit;color:var(--ink);min-height:47px}input:focus,select:focus,textarea:focus{outline:2px solid #b8cbb8;border-color:#638f72}input[type=checkbox]{width:auto;min-height:0;accent-color:var(--forest)}.pkg{border:1px solid var(--line);padding:17px;border-radius:14px;margin:11px 0;background:#fcfdfb}.pkg-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.pkg strong{color:var(--forest);font-size:16px}.price{font-weight:750;color:#a27c42;white-space:nowrap}.pkg p{margin:5px 0 12px;color:var(--muted);font-size:13px}.qty{max-width:130px}.addon{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:12px;margin-bottom:9px;cursor:pointer}.addon span{font-weight:500}.summary{background:var(--mint);border:1px solid #cbdccf;border-radius:15px;padding:20px}.sumrow{display:flex;justify-content:space-between;gap:10px;margin:9px 0}.total{border-top:1px solid #b9d0c0;padding-top:14px;margin-top:14px;font-size:22px;font-weight:800;color:var(--forest)}.warning{background:#fbf7ec;border:1px solid #e6d8b6;border-radius:12px;padding:16px;margin:16px 0;font-size:13px}.btn{width:100%;background:var(--forest);color:white;border:0;border-radius:12px;padding:17px;font:700 16px 'DM Sans',sans-serif;cursor:pointer}.btn:hover{background:#28543f}.btn:disabled{opacity:.55;cursor:wait}.foot{text-align:center;color:var(--muted);font-size:12px;margin:22px 0}.hidden{display:none!important}.fee-hint{grid-column:1/-1;background:#edf3ec;border-radius:12px;padding:12px;font-size:13px}@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:19px}.pkg-top{flex-direction:column;gap:3px}header{padding:18px 16px 75px}header img{width:74px;height:74px}.wrap{padding:0 12px}.hero-title{font-size:35px}.brandmark{font-size:10px;letter-spacing:1px}}
+</style></head><body><header><div class="head-inner"><div class="topbar"><span class="brandmark">VILLA 9 · MAADI</span><img src="icon.png" alt="Villa 9 official logo"></div><p class="eyebrow">Villa 9 Events</p><h1 class="hero-title">Every Moment Matters</h1><p class="hero-sub">One Place. Every Celebration.</p><p class="hero-desc">From intimate gatherings to unforgettable celebrations, tell us what you have in mind and explore your event options.</p></div></header><main class="wrap"><section class="card"><h2>01 / Your Event</h2><div class="grid"><div><label for="type">Event Type *</label><select id="type" required><option value="">Select an event</option><option value="عيد ميلاد أطفال">Kids Birthday</option><option value="عيد ميلاد كبار">Adults Birthday</option><option value="خطوبة">Engagement</option><option value="كتب كتاب">Katb Ketab</option><option value="فرح">Wedding</option><option value="عزومة / تجمع عائلي">Family Gathering</option><option value="مناسبة شركة">Corporate Event</option><option value="مناسبة أخرى">Other Event</option></select></div><div><label for="location">Event Location *</label><select id="location"><option value="داخل Villa 9">At Villa 9</option><option value="كاترينج خارجي">External Catering</option></select></div><div id="areaModeWrap"><label for="bookingMode">Booking Style at Villa 9</label><select id="bookingMode"><option value="regular">Regular Booking (Non-exclusive)</option><option value="exclusive">Exclusive Area (5 Hours)</option></select></div><div id="exclusiveAreaWrap" class="hidden"><label for="exclusiveArea">Choose Exclusive Area *</label><select id="exclusiveArea"><option value="">Select an area</option><option value="Front Garden">Front Garden | Front Garden</option><option value="Back Garden">Back Garden | Back Garden</option><option value="Indoor">Indoor | Indoor Dining</option><option value="Rooftop">Rooftop | Rooftop</option></select></div><div id="exclusiveHint" class="hidden" style="grid-column:1/-1;background:#e9f1ec;border-radius:12px;padding:12px;font-size:13px">Exclusive use is for 5 hours. Estimated area fee: EGP 2,000 Sunday–Wednesday, or EGP 3,500 Thursday–Saturday. The fee is included in your estimate once you choose a date. Subject to availability and management confirmation. <strong id="areaFeeHint"></strong></div><div><label for="date">Preferred Date *</label><input id="date" type="date" required></div><div><label for="time">Preferred Time *</label><input id="time" type="time" required></div></div><p class="hint" style="margin-top:12px">Dates and spaces are subject to availability. Submitting an inquiry does not confirm a booking.</p></section><section class="card"><h2>02 / Food & Beverage Packages</h2><p class="hint">Mix kids and adults packages for the same event. Enter the number of guests per package to see your live food and beverage estimate.</p><div id="packages"></div><div class="sumrow"><strong>Total Guests</strong><strong id="guestCount">0</strong></div><p class="hint">For other event styles or custom buffets, describe your requirements below and our team will prepare a tailored quotation.</p></section><section class="card"><h2>03 / Optional Extras</h2><p class="hint">Select any services you would like. These extras are not included in the estimate and will be quoted separately.</p><div id="addons"></div></section><section class="card"><h2>04 / Contact Details</h2><div class="grid"><div><label for="name">Full Name *</label><input id="name" autocomplete="name" placeholder="Your full name" required></div><div><label for="phone">Mobile Number *</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01xxxxxxxxx" required></div></div><label for="notes" style="margin-top:12px">Special Requests</label><textarea id="notes" rows="3" placeholder="Tell us about your theme, cake, buffet, guest count, or anything special..."></textarea></section><section class="card"><h2>05 / Your Estimate</h2><div class="summary"><div id="lines"></div><div class="sumrow"><span>Food & Beverages</span><strong id="foodSubtotal">EGP 0</strong></div><div class="sumrow" id="areaFeeRow" style="display:none"><span>Exclusive Area (5 Hours)</span><strong id="areaFeeTotal">EGP 0</strong></div><div class="sumrow total"><span>Estimated Total</span><span id="total">EGP 0</span></div></div><div class="warning"><strong>Please note:</strong><br>The displayed amount is <strong>an estimate for food, beverages, and the exclusive area fee if selected</strong> and is not your final event quotation. It excludes decorations, DJ, sound, photography, catering transport and staffing, and other unlisted charges. Our team will review your request and provide a <strong>separate final quotation</strong> including requested services, fees, and applicable taxes. Sending this inquiry does not confirm a booking.</div><button class="btn" id="send">Send Inquiry & Open WhatsApp</button><p class="hint" style="text-align:center;margin-top:9px">We will attempt to submit your inquiry, then open WhatsApp with a prepared message. Our team will confirm your request after review.</p></section><p class="foot">Villa 9 Restaurant, Cafe & Rooftop • Event Inquiry</p></main><script>
 // Live prices are loaded from the public read-only catalog endpoint.
 let PACKAGES=[];
 const CATALOG_ENDPOINT='https://script.google.com/macros/s/AKfycbwbmpq1W4UAg3wJ8vT4Qe5IU0E_iXFtCdpMadLR9m5RrzlSd5tijkO_jx8OCSvJx1gT/exec';
 let catalogReady=false;
 const catalogStatus=document.createElement('p');
 catalogStatus.className='hint';
-catalogStatus.textContent='جاري تحميل أسعار الباكدجات من Villa 9...';
+catalogStatus.textContent='Loading current Villa 9 package prices...';
 document.getElementById('packages').before(catalogStatus);
+
+// Presentation-only labels: original package names and IDs are kept for the booking system.
+function englishGroup(v){const x=String(v||'');if(/طفل|كيدز|kids/i.test(x))return 'Kids Birthday Packages';if(/كبار|adult/i.test(x))return 'Adults Birthday Packages';if(/خطوب|كتب|engagement|katb/i.test(x))return 'Engagement & Katb Ketab';return x||'Event Packages'}
+function englishPackage(v){const x=String(v||'');const names={'ميني فن':'Mini Fun','هابي':'Happy','سوبر ستار':'Super Star','سوشيال بايتس':'Social Bites','سيجنتشر':'Signature','رويال':'Royale','سويت بيجينينجز':'Sweet Beginnings','لوف ستوري':'Love Story','فوريفر رويال':'Forever Royale'};return names[x]||x}
+function englishDescription(v){const x=String(v||'').trim();return !x?'Ask our team for package details':/[\u0600-\u06FF]/.test(x)?'Ask our events team for the full package menu and inclusions.':x}
 function renderPackages(){
  const container=document.getElementById('packages');container.replaceChildren();
  let group='';
  PACKAGES.forEach((p,i)=>{
-  if(p.group!==group){group=p.group;const h=document.createElement('h3');h.textContent=group||'باكدجات المناسبات';container.appendChild(h)}
+  if(p.group!==group){group=p.group;const h=document.createElement('h3');h.textContent=englishGroup(group)||'Event Packages';container.appendChild(h)}
   const el=document.createElement('div');el.className='pkg';
   const top=document.createElement('div');top.className='pkg-top';
-  const title=document.createElement('strong');title.textContent=p.name;
-  const price=document.createElement('span');price.className='price';price.textContent=fmt(p.price)+' / فرد';top.append(title,price);
-  const desc=document.createElement('p');desc.textContent=p.desc||'اسأل الإدارة عن تفاصيل الباكدج';
-  const label=document.createElement('label');label.htmlFor='q'+i;label.textContent='عدد الأفراد في الباكدج';
+  const title=document.createElement('strong');title.textContent=englishPackage(p.name);
+  const price=document.createElement('span');price.className='price';price.textContent=fmt(p.price)+' / guest';top.append(title,price);
+  const desc=document.createElement('p');desc.textContent=englishDescription(p.desc);
+  const label=document.createElement('label');label.htmlFor='q'+i;label.textContent='Number of guests';
   const input=document.createElement('input');input.className='qty';input.id='q'+i;input.type='number';input.min='0';input.max='150';input.step='1';input.value='0';input.inputMode='numeric';
   el.append(top,desc,label,input);container.appendChild(el);
  });
@@ -27,26 +34,27 @@ function renderPackages(){
 function loadLivePackages(){
  const btn=document.getElementById('send');btn.disabled=true;
  if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(CATALOG_ENDPOINT)){
-  catalogStatus.textContent='إعداد رابط أسعار الباكدجات لم يكتمل. برجاء التواصل مع الإدارة.';return;
+  catalogStatus.textContent='The package pricing link is not configured. Please contact our team.';return;
  }
  const callback='v9PackagesCallback_'+Date.now()+'_'+Math.floor(Math.random()*100000);
  const script=document.createElement('script');let settled=false;
  const timer=setTimeout(()=>finish(null),12000);
  function finish(data){if(settled)return;settled=true;clearTimeout(timer);script.remove();delete window[callback];
   if(!data||!data.success||!Array.isArray(data.packages)){
-   catalogStatus.textContent='تعذر تحميل الأسعار الحالية. حدث الصفحة أو تواصل معنا.';return;
+   catalogStatus.textContent='Unable to load current prices. Please refresh or contact our team.';return;
   }
   PACKAGES=data.packages.filter(p=>p&&p.id&&p.name&&Number.isFinite(Number(p.price))&&Number(p.price)>=0).map(p=>({...p,price:Number(p.price)}));
-  if(!PACKAGES.length){catalogStatus.textContent='لا توجد باكدجات متاحة حاليًا. تواصل معنا.';return;}
-  renderPackages();update();catalogReady=true;btn.disabled=false;catalogStatus.textContent='✓ الأسعار محدثة مباشرة من قائمة Villa 9.';
+  if(!PACKAGES.length){catalogStatus.textContent='No packages are currently available. Please contact our team.';return;}
+  renderPackages();update();catalogReady=true;btn.disabled=false;catalogStatus.textContent='✓ Live pricing updated from the Villa 9 catalog.';
  }
  window[callback]=finish;script.onerror=()=>finish(null);
  script.src=CATALOG_ENDPOINT+'?action=packages&callback='+encodeURIComponent(callback)+'&t='+Date.now();
  document.head.appendChild(script);
 }
 const ADDONS=['ديكور المناسبة','تورتة عيد ميلاد','DJ وموسيقى','صوتيات وتجهيزات','تصوير فوتوغرافي / فيديو','تجهيزات وطاولات إضافية','خدمة كاترينج خارجي'];
-const fmt=n=>new Intl.NumberFormat('ar-EG',{maximumFractionDigits:0}).format(n)+' جنيه';
-const adds=document.getElementById('addons');ADDONS.forEach((a,i)=>{const row=document.createElement('label');row.className='addon';row.innerHTML=`<input type="checkbox" id="a${i}"><span>${a}</span>`;adds.appendChild(row)});
+const ADDON_LABELS=['Event Decoration','Birthday Cake','DJ & Music','Sound & AV Setup','Photography / Videography','Extra Tables & Setup','External Catering Service'];
+const fmt=n=>'EGP '+new Intl.NumberFormat('en-EG',{maximumFractionDigits:0}).format(n);
+const adds=document.getElementById('addons');ADDONS.forEach((a,i)=>{const row=document.createElement('label');row.className='addon';row.innerHTML=`<input type="checkbox" id="a${i}"><span>${ADDON_LABELS[i]}</span>`;adds.appendChild(row)});
 function getSelection(){return PACKAGES.map((p,i)=>({...p,qty:Math.max(0,Math.floor(Number(document.getElementById('q'+i).value)||0))})).filter(p=>p.qty>0)}
 function exclusiveFee(){
  const d=document.getElementById('date').value;
@@ -82,7 +90,7 @@ function updateExclusiveUI(){
  if(!onsite){bookingMode.value='regular';exclusiveArea.value='';}
  const d=document.getElementById('date').value;
  if(d&&exclusive){const weekday=new Date(d+'T12:00:00').getDay();const fee=weekday>=4&&weekday<=6?3500:2000;
- document.getElementById('areaFeeHint').textContent='رسوم المساحة للتاريخ المختار: '+fmt(fee)+' (مضافة للإجمالي التقديري).';}
+ document.getElementById('areaFeeHint').textContent='Area fee for selected date: '+fmt(fee)+' (included in your estimate).';}
  else document.getElementById('areaFeeHint').textContent='';
  update();
 }
@@ -93,22 +101,22 @@ updateExclusiveUI();
 const sendButton=document.getElementById('send');
 loadLivePackages();
 sendButton.addEventListener('click',async()=>{
-  if(!catalogReady){alert('الأسعار لم يتم تحميلها بعد. برجاء تحديث الصفحة.');return;}
+  if(!catalogReady){alert('Prices are still loading. Please refresh and try again.');return;}
   const ids=['type','date','time','name','phone'];
   for(const id of ids){
     const el=document.getElementById(id);
-    if(!el.value.trim()){el.focus();el.reportValidity();alert('من فضلك أكمل البيانات المطلوبة.');return;}
+    if(!el.value.trim()){el.focus();el.reportValidity();alert('Please complete all required fields.');return;}
   }
   const phone=document.getElementById('phone').value.trim().replace(/\s/g,'');
   if(!/^(?:\+?20|0)?1[0125]\d{8}$/.test(phone)){
-    alert('من فضلك اكتب رقم موبايل مصري صحيح.');document.getElementById('phone').focus();return;
+    alert('Please enter a valid Egyptian mobile number.');document.getElementById('phone').focus();return;
   }
   const {sel,count,total,foodTotal,areaFee}=update();
   const location=document.getElementById('location').value;
-  if(location==='كاترينج خارجي'&&count>0&&count<25){alert('الحد الأدنى للكاترينج الخارجي 25 فرد. عدّل العدد أو تواصل معنا للاستفسار.');return;}
-  if(count>150){alert('الحد الأقصى للمناسبة داخل Villa 9 هو 150 فرد. تواصل معنا للترتيبات الخاصة.');return;}
+  if(location==='كاترينج خارجي'&&count>0&&count<25){alert('External catering requires at least 25 guests. Please adjust the number or contact us.');return;}
+  if(count>150){alert('The standard maximum is 150 guests. Contact us for larger events.');return;}
   const isExclusive=location==='داخل Villa 9'&&bookingMode.value==='exclusive';
-  if(isExclusive&&!exclusiveArea.value){alert('اختار المساحة الحصرية المطلوبة.');exclusiveArea.focus();return;}
+  if(isExclusive&&!exclusiveArea.value){alert('Please choose an exclusive area.');exclusiveArea.focus();return;}
   const selectedArea=isExclusive?exclusiveArea.value:'';
   const areaText=isExclusive?'حجز حصري 5 ساعات | '+selectedArea:'حجز عادي غير حصري';
   const requested=ADDONS.filter((_,i)=>document.getElementById('a'+i).checked);
@@ -146,7 +154,7 @@ sendButton.addEventListener('click',async()=>{
   // Open during the direct click to avoid iPhone pop-up blocking.
   const whatsappWindow=window.open('about:blank','_blank');
   sendButton.disabled=true;
-  sendButton.textContent='جاري إرسال البيانات...';
+  sendButton.textContent='Submitting your inquiry...';
   let attempted=false;
   try{
     // Apps Script Web Apps do not generally return browser-readable CORS responses.
@@ -161,11 +169,11 @@ sendButton.addEventListener('click',async()=>{
     console.error('Booking transport failed:',err);
   }finally{
     sendButton.disabled=false;
-    sendButton.textContent='إرسال الطلب وفتح واتساب ←';
+    sendButton.textContent='Send Inquiry & Open WhatsApp';
   }
   if(whatsappWindow&&!whatsappWindow.closed){whatsappWindow.location.href=whatsapp;}
   else{window.location.href=whatsapp;}
-  if(!attempted){alert('تعذر الاتصال بنظام الحجوزات. ابعت رسالة واتساب، وسنتابع طلبك يدويًا.');}
-  else{alert('تم إرسال الطلب للمراجعة. برجاء إرسال رسالة واتساب أيضًا. سنؤكد استلام الحجز بعد المراجعة.');}
+  if(!attempted){alert('We could not connect to the booking system. Please send the WhatsApp message so our team can follow up.');}
+  else{alert('Your inquiry was sent for review. Please send the WhatsApp message too. Our team will confirm receipt after checking.');}
 });
 </script></body></html>
